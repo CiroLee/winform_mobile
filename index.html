@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>winform移动端弹窗插件</title>
+    <link rel="stylesheet" href="css/winform.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .button-box{
+            width:100%;
+            height:50px;
+            position: absolute;
+            display: flex;
+            bottom:20px;
+        }
+        .button{
+            flex:1;
+            height: 40px;
+            position: relative;
+            margin:6px;
+            display: inline-block;
+            text-align: center;
+            background: #169b16;
+            line-height: 40px;
+            color:#fff;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+            <div class="button-box">
+             <span class="button test1">Alert</span>
+            <span class="button test2" >tips</span>
+            <span class="button test3" >confirm</span>
+            <span class="button test4" >load</span>
+            </div>
+           
+    </div>
+    
+</body>
+<script src="js/winform.js"></script>
+<script>
+    let winform = new winForm('wrapper');
+
+    //回调函数
+    // let demo = function(){
+    //     window.location.href = 'http://www.baidu.com'
+    // }
+    let demo2 = function(e){
+        setTimeout(function(){winform.remoeLoading()},3000)
+    }
+    
+    $(".test1").on('touchstart',function(){
+        winform.alert('上滑消失','#d3cfcf');
+    });
+
+    $(".test2").on("touchstart",function(){
+        winform.tips("简单案例",2);
+    });
+
+    $(".test3").on("touchstart",function(){
+        winform.confirm('this a message','#d3cfcf',function(){winform.tips("CLOSED")});
+    });
+
+    $(".test4").on("touchstart",function(){
+        //winform.alert("默认3s后消失,上滑消失",'#d3cfcf');
+        winform.loading(1,{text:'一段文字',textcolor:'#333',ballcolor:'#14AC6D'},demo2());
+    });
+
+</script>
+</html>
