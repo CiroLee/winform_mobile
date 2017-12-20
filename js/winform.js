@@ -76,7 +76,7 @@ class winForm {
         }
         
         
-        document.getElementById(this.selector).appendChild(alertElement);
+        document.querySelector(this.selector).appendChild(alertElement);
         alertElement.appendChild(msgElement);
     }
     //简单提示层
@@ -100,7 +100,7 @@ class winForm {
             this._removeElement(tipsElement);
         },time*1000);
 
-        document.getElementById(this.selector).appendChild(tipsElement);
+        document.querySelector(this.selector).appendChild(tipsElement);
         tipsElement.appendChild(msgElement);
     }
     //信息确认层
@@ -134,7 +134,7 @@ class winForm {
             
         },false);
 
-        document.getElementById(this.selector).appendChild(confirmElement);
+        document.querySelector(this.selector).appendChild(confirmElement);
         confirmElement.appendChild(msgElement);
         confirmElement.appendChild(quitBtnElement);
         confirmElement.appendChild(sureBtnElement);
@@ -176,7 +176,7 @@ class winForm {
 
         
 
-        document.getElementById(this.selector).appendChild(boxElement);
+        document.querySelector(this.selector).appendChild(boxElement);
         boxElement.appendChild(first_ball);
         boxElement.appendChild(second_ball);
         boxElement.appendChild(third_ball);
